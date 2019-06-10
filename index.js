@@ -61,17 +61,37 @@ class threeCommasAPI {
     return await this.makeRequest('POST', `/public/api/ver1/deals/${deal_id}/cancel?`, { deal_id })
   }
 
+  async dealCancelOrder (deal_id) {
+    return await this.makeRequest('POST', `/public/api/ver1/deals/${deal_id}/cancel_order?`, { deal_id })
+  }
+
+  async dealAddFunds (deal_id, params) {
+    return await this.makeRequest('POST', `/public/api/ver1/deals/${deal_id}/add_funds?`, params)
+  }
+
   async dealUpdate (deal_id, params) {
-    return await this.makeRequest('PATCH', `/public/api/ver1/deals/${deal_id}/update_tp?`, params)
+    return await this.makeRequest('PATCH', `/public/api/ver1/deals/${deal_id}/update_deal?`, params)
   }
 
   async getDeal (deal_id) {
     return await this.makeRequest('GET', `/public/api/ver1/deals/${deal_id}/show?`, { deal_id })
   }
 
+  async getDealOrders (deal_id) {
+    return await this.makeRequest('GET', `/public/api/ver1/deals/${deal_id}/market_orders?`, { deal_id })
+  }
+
+  async getDealDataForAddingFunds (deal_id) {
+    return await this.makeRequest('GET', `/public/api/ver1/deals/${deal_id}/data_for_adding_funds?`, { deal_id })
+  }
+
   /**
    * Bots methods
    */
+
+  async getBotsStrategyList () {
+    return await this.makeRequest('GET', `/public/api/ver1/bots/strategy_list?`, null)
+  }
 
   async getBotsBlackList () {
     return await this.makeRequest('GET', `/public/api/ver1/bots/pairs_black_list?`, null)
