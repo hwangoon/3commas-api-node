@@ -44,13 +44,11 @@ see `example.js` for more details
 ```
  getDeals (params)
  
- dealUpdateMaxSafetyOrders (deal_id, max_safety_orders)
- 
  dealPanicSell (deal_id)
  
  dealCancel (deal_id)
  
- dealUpdateTp (deal_id, new_take_profit_percentage)
+ dealUpdate (deal_id, params)
  
  getDeal (deal_id)
 ```
