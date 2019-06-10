@@ -53,10 +53,6 @@ class threeCommasAPI {
     return await this.makeRequest('GET', '/public/api/ver1/deals?', params)
   }
 
-  async dealUpdateMaxSafetyOrders (deal_id, max_safety_orders) {
-    return await this.makeRequest('POST', `/public/api/ver1/deals/${deal_id}/update_max_safety_orders?`, { deal_id, max_safety_orders })
-  }
-
   async dealPanicSell (deal_id) {
     return await this.makeRequest('POST', `/public/api/ver1/deals/${deal_id}/panic_sell?`, { deal_id })
   }
@@ -65,8 +61,8 @@ class threeCommasAPI {
     return await this.makeRequest('POST', `/public/api/ver1/deals/${deal_id}/cancel?`, { deal_id })
   }
 
-  async dealUpdateTp (deal_id, new_take_profit_percentage) {
-    return await this.makeRequest('POST', `/public/api/ver1/deals/${deal_id}/update_tp?`, { deal_id, new_take_profit_percentage })
+  async dealUpdate (deal_id, params) {
+    return await this.makeRequest('PATCH', `/public/api/ver1/deals/${deal_id}/update_tp?`, params)
   }
 
   async getDeal (deal_id) {
